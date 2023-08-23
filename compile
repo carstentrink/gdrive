@@ -6,8 +6,8 @@ export GOARCH=amd64
 export BIN_NAME="gdrive_linux_amd64"
 export BIN_PATH="./bin"
 go build -ldflags '-w -s' -o ${BIN_PATH}/${BIN_NAME}
-export GOARCH=arm
-export BIN_NAME="gdrive_linux_rpi"
-export BIN_PATH="./bin"
-go build -ldflags '-w -s' -o ${BIN_PATH}/${BIN_NAME}
+#export GOARCH=arm
+#export BIN_NAME="gdrive_linux_rpi"
+#export BIN_PATH="./bin"
+#go build -ldflags '-w -s' -o ${BIN_PATH}/${BIN_NAME}
 

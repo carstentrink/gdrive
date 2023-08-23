@@ -59,6 +59,7 @@ func PrintFileInfo(args PrintFileInfoArgs) {
 		{"Parents", formatList(f.Parents)},
 		{"ViewUrl", f.WebViewLink},
 		{"DownloadUrl", f.WebContentLink},
+//		{"copyRequiresWriterPermission", formatBool(f.CopyRequiresWriterPermission)},
 	}
 
 	for _, item := range items {

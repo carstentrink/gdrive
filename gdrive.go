@@ -11,9 +11,9 @@ const Name = "gdrive"
 const Version = "3.0.11"
 
 const DefaultMaxFiles = 999
-const DefaultSelection = 1
+const DefaultSelection = 4
 const DefaultMaxChanges = 100
-const DefaultNameWidth = 69
+const DefaultNameWidth = 99
 const DefaultPathWidth = 60
 const DefaultUploadChunkSize = 8 * 1024 * 1024
 const DefaultTimeout = 5 * 60
@@ -379,6 +379,26 @@ func main() {
 						Patterns:    []string{"--bytes"},
 						Description: "Show size in bytes",
 						OmitValue:   true,
+					},
+				),
+			},
+		},
+		{
+			Pattern:     "[global] copy [options] <fileId>",
+			Description: "Copy file",
+			Callback:    copyHandler,
+			FlagGroups: cli.FlagGroups{
+				cli.NewFlagGroup("global", globalFlags...),
+				cli.NewFlagGroup("options",
+					cli.StringSliceFlag{
+						Name:        "parent",
+						Patterns:    []string{"-p", "--parent"},
+						Description: "The copied file will be placed in this parent directory",
+					},
+					cli.StringFlag{
+						Name:        "name",
+						Patterns:    []string{"--name"},
+						Description: "Optional: file name",
 					},
 				),
 			},

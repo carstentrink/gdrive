@@ -21,14 +21,16 @@ func (self *Drive) About(args AboutArgs) (err error) {
 	quota := about.StorageQuota
 
 	fmt.Fprintf(args.Out, "User: %s, %s\n", user.DisplayName, user.EmailAddress)
-	fmt.Fprintf(args.Out, "Used: %s\n", formatSize(quota.Usage, args.SizeInBytes))
 	if quota.Limit > 0 {
 		fmt.Fprintf(args.Out, "Free: %s\n", formatSize(quota.Limit-quota.Usage, args.SizeInBytes))
-		fmt.Fprintf(args.Out, "Total: %s\n", formatSize(quota.Limit, args.SizeInBytes))
+//		fmt.Fprintf(args.Out, "Total: %s\n", formatSize(quota.Limit, args.SizeInBytes))
 	} else {
 		fmt.Println("Total: Unlimited")
 	}
-	fmt.Fprintf(args.Out, "Max upload size: %s\n", formatSize(about.MaxUploadSize, args.SizeInBytes))
+	fmt.Fprintf(args.Out, "Usage: %s\n", formatSize(quota.Usage, args.SizeInBytes))
+	fmt.Fprintf(args.Out, "Drive: %s\n", formatSize(quota.UsageInDrive, args.SizeInBytes))
+	fmt.Fprintf(args.Out, "Others: %s\n", formatSize(quota.Usage - quota.UsageInDrive, args.SizeInBytes))
+//	fmt.Fprintf(args.Out, "Max upload size: %s\n", formatSize(about.MaxUploadSize, args.SizeInBytes))
 	return
 }
 

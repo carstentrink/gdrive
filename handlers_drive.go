@@ -16,6 +16,7 @@ import (
 var clientId = "ABCDEFGH.apps.googleusercontent.com"
 var clientSecret = "IJKLMNOPQ"
 
+
 const TokenFilename = "USERNAME_v2.json"
 const OauthCredentialsFilename = "oauth_client.json"
 const DefaultCacheFileName = "file_cache.json"
@@ -191,6 +192,17 @@ func infoHandler(ctx cli.Context) {
 		Out:         os.Stdout,
 		Id:          args.String("fileId"),
 		SizeInBytes: args.Bool("sizeInBytes"),
+	})
+	checkErr(err)
+}
+
+func copyHandler(ctx cli.Context) {
+	args := ctx.Args()
+	err := newDrive(args).Copy(drive.FileCopyArgs{
+		Out:         os.Stdout,
+		Id:          args.String("fileId"),
+		Parents:     args.StringSlice("parent"),
+		Name:        args.String("name"),
 	})
 	checkErr(err)
 }

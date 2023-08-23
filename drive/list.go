@@ -127,7 +127,7 @@ func PrintFileList(args PrintFileListArgs) {
 	w.Init(args.Out, 0, 0, 3, ' ', 0)
 
 	if !args.SkipHeader {
-		fmt.Fprintln(w, "Id Name Type Size ModifiedTime")
+		fmt.Fprintln(w, "Id Name Type Size CreatedTime")
 	}
 
 	for _, f := range args.Files {
@@ -136,7 +136,7 @@ func PrintFileList(args PrintFileListArgs) {
 			truncateString(f.Name, args.NameWidth),
 			filetype(f),
 			formatSize(f.Size, args.SizeInBytes),
-			formatDatetime(f.ModifiedTime),
+			formatDatetime(f.CreatedTime),
 		)
 	}
 
