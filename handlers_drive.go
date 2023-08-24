@@ -13,11 +13,13 @@ import (
 	"github.com/msfjarvis/gdrive/drive"
 )
 
-var clientId = "ABCDEFGH.apps.googleusercontent.com"
-var clientSecret = "IJKLMNOPQ"
+var (
+	clientId     string
+	clientSecret string
+	tokenFilename string
+)
 
 
-const TokenFilename = "USERNAME_v2.json"
 const OauthCredentialsFilename = "oauth_client.json"
 const DefaultCacheFileName = "file_cache.json"
 
@@ -378,7 +380,7 @@ func getOauthClient(args cli.Arguments) (*http.Client, error) {
 		return serviceAccountClient, nil
 	}
 
-	tokenPath := ConfigFilePath(configDir, TokenFilename)
+	tokenPath := ConfigFilePath(configDir, tokenFilename)
 	return auth.NewFileSourceClient(clientId, clientSecret, tokenPath, auth.AuthCodeHTTP)
 }
 

@@ -5,7 +5,9 @@ export GOOS=linux
 export GOARCH=amd64
 export BIN_NAME="gdrive_linux_amd64"
 export BIN_PATH="./bin"
-go build -ldflags '-w -s' -o ${BIN_PATH}/${BIN_NAME}
+
+go build -ldflags "-w -s -X main.clientId=ABCDEFGH.apps.googleusercontent.com -X main.clientSecret=IJKLMNOPQ -X main.tokenFilename=USERNAME_v2.json" -o ${BIN_PATH}/${BIN_NAME}
+
 #export GOARCH=arm
 #export BIN_NAME="gdrive_linux_rpi"
 #export BIN_PATH="./bin"

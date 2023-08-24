@@ -18,7 +18,7 @@ or install `go version go1.19.1 linux/amd64` from  https://go.dev/doc/install
 
 1. `git clone --depth=1 https://github.com/carstentrink/gdrive`
 2. `cd gdrive`
-3. Just edit the `clientId` and `clientSecret` in the file `handlers_drive.go`.
+3. Just edit the `clientId` and `clientSecret` in the file `compile`.
 4. `./compile`
 5. The binaries are located inside `gdrive/bin` folder
 6. `./gdrive_linux_amd64 about`
