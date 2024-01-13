@@ -34,3 +34,13 @@ Waiting for authentication response
 
 7. Open a browser at the URL
 8. For remote linux boxes just do the authentication locally and copy the `linux binary` and `~/.config/gdrive/USERNAME_v2.json` to the remote box.
+
+
+## examples
+
+```
+gdrive list --query "( ( visibility = 'anyoneCanFind' or visibility = 'anyoneWithLink' or visibility = 'domainCanFind' or visibility = 'domainWithLink' or visibility = 'limited' ) ) and trashed = false and '1ABCDEFGHIKLMNOPQRSQTUVWXYZ'  in parents"
+gdrive list --query " ( "starred" and (mimeType != 'application/vnd.google-apps.folder') )"
+gdrive list --query " (  (mimeType != 'application/vnd.google-apps.folder') and (viewedByMeTime > '2023-02-03T12:00:00-08:00') )"
+```
+
