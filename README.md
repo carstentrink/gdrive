@@ -43,5 +43,6 @@ gdrive list --no-header  -m 50  --query "( ( visibility = 'anyoneCanFind' or vis
 gdrive list --query "( ( visibility = 'anyoneCanFind' or visibility = 'anyoneWithLink' or visibility = 'domainCanFind' or visibility = 'domainWithLink' or visibility = 'limited' ) ) and trashed = false and '1ABCDEFGHIKLMNOPQRSQTUVWXYZ'  in parents"
 gdrive list --query " ( "starred" and (mimeType != 'application/vnd.google-apps.folder') )"
 gdrive list --query " (  (mimeType != 'application/vnd.google-apps.folder') and (viewedByMeTime > '2023-02-03T12:00:00-08:00') )"
+gdrive list --order 'modifiedTime desc'  --query "'1ABCDEFGHIKLMNOPQRSQTUVWXYZ'  in parents"
 ```
 
