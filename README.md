@@ -9,9 +9,12 @@ gdrive is a command line utility for interacting with Google Drive.
 
 1. Enable https://console.cloud.google.com/marketplace/product/google/drive.googleapis.com
 2. https://console.cloud.google.com/apis/credentials and application type to be Desktop App give some name
-3. In "OAuth consent screen"; User type to External and publish
-4. Get the values for `clientId` and `clientSecret`
-5. For Go-preinstalled linux VM use: https://console.cloud.google.com/home/dashboard?cloudshell=true
+3. In "OAuth consent screen" https://console.cloud.google.com/apis/credentials/consent
+4. Clock add/remove scopes and then add https://www.googleapis.com/auth/drive.file scope
+5. It becomes non-sensitive
+6. Set: User type to External and publish
+7. Get the values for `clientId` and `clientSecret`
+8. For Go-preinstalled linux VM use: https://console.cloud.google.com/home/dashboard?cloudshell=true
 or install `go version go1.19.1 linux/amd64` from  https://go.dev/doc/install
 
 ## Download and compile
