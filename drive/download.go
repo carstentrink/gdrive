@@ -18,6 +18,7 @@ type DownloadArgs struct {
 	Path      string
 	Force     bool
 	Skip      bool
+	Simulate  bool
 	Recursive bool
 	Delete    bool
 	Stdout    bool
@@ -77,6 +78,7 @@ type DownloadQueryArgs struct {
 	Path      string
 	Force     bool
 	Skip      bool
+	Simulate  bool
 	Recursive bool
 	Try       int
 }
@@ -102,6 +104,7 @@ func (self *Drive) DownloadQuery(args DownloadQueryArgs) error {
 		Path:     args.Path,
 		Force:    args.Force,
 		Skip:     args.Skip,
+		Simulate: args.Simulate,
 	}
 
 	for _, f := range files {
@@ -152,6 +155,12 @@ func (self *Drive) downloadBinary(f *drive.File, args DownloadArgs) (int64, int6
 	//Check if file exists to skip
 	if args.Skip && fileExists(fpath) {
 		fmt.Printf("File '%s' already exists, skipping\n", fpath)
+		return 0, 0, nil
+	}
+
+	//Check if simulate
+	if args.Simulate {
+		fmt.Printf("Simulate '%s'\n", fpath)
 		return 0, 0, nil
 	}
 

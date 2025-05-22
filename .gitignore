@@ -1,7 +1,5 @@
 # Ignore bin folder and drive binary
 _release/bin
-compile
-compile.local
 
 # vim files
 .*.sw[a-z]

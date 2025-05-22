@@ -128,6 +128,12 @@ func main() {
 						OmitValue:   true,
 					},
 					cli.BoolFlag{
+						Name:        "simulate",
+						Patterns:    []string{"-n", "--simulate"},
+						Description: "Simulate",
+						OmitValue:   true,
+					},
+					cli.BoolFlag{
 						Name:        "recursive",
 						Patterns:    []string{"-r", "--recursive"},
 						Description: "Download directory recursively, documents will be skipped",
