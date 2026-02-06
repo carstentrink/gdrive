@@ -14,7 +14,7 @@ type FileInfoArgs struct {
 }
 
 func (self *Drive) Info(args FileInfoArgs) error {
-	f, err := self.service.Files.Get(args.Id).SupportsTeamDrives(true).Fields("id", "name", "size", "createdTime", "modifiedTime", "md5Checksum", "mimeType", "parents", "shared", "description", "webContentLink", "webViewLink").Do()
+	f, err := self.service.Files.Get(args.Id).SupportsTeamDrives(true).Fields("id", "name", "size", "createdTime", "modifiedTime", "md5Checksum", "mimeType", "parents", "shared", "description", "webContentLink", "webViewLink", "owners").Do()
 	if err != nil {
 		return fmt.Errorf("Failed to get file: %s", err)
 	}
@@ -57,9 +57,10 @@ func PrintFileInfo(args PrintFileInfoArgs) {
 		{"Md5sum", f.Md5Checksum},
 		{"Shared", formatBool(f.Shared)},
 		{"Parents", formatList(f.Parents)},
+		{"Owner", getOwnerEmail(f.Owners)},
 		{"ViewUrl", f.WebViewLink},
 		{"DownloadUrl", f.WebContentLink},
-//		{"copyRequiresWriterPermission", formatBool(f.CopyRequiresWriterPermission)},
+		//		{"copyRequiresWriterPermission", formatBool(f.CopyRequiresWriterPermission)},
 	}
 
 	for _, item := range items {
@@ -67,4 +68,11 @@ func PrintFileInfo(args PrintFileInfoArgs) {
 			fmt.Fprintf(args.Out, "%s: %s\n", item.key, item.value)
 		}
 	}
+}
+
+func getOwnerEmail(owners []*drive.User) string {
+	if len(owners) > 0 && owners[0] != nil {
+		return owners[0].EmailAddress
+	}
+	return ""
 }

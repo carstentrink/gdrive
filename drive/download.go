@@ -160,7 +160,7 @@ func (self *Drive) downloadBinary(f *drive.File, args DownloadArgs) (int64, int6
 
 	//Check if simulate
 	if args.Simulate {
-		fmt.Printf("Simulate '%s'\n", fpath)
+		fmt.Printf("%s %s\n", f.Id, f.Name)
 		return 0, 0, nil
 	}
 
