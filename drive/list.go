@@ -84,6 +84,8 @@ func (self *Drive) listAllFiles(args listAllFilesArgs) ([]*drive.File, error) {
 		changeQuery = "( ( visibility = 'anyoneCanFind' or visibility = 'anyoneWithLink' or visibility = 'domainCanFind' or visibility = 'domainWithLink' or visibility = 'limited' ) and trashed = false ) "
 	} else if args.selection == 3 {
 		changeQuery = "( ( visibility = 'anyoneCanFind' or visibility = 'anyoneWithLink' or visibility = 'domainCanFind' or visibility = 'domainWithLink' or visibility = 'limited' ) ) and starred = true and trashed = false and ( mimeType != 'application/vnd.google-apps.folder' )"
+	} else if args.selection == 4 {
+		changeQuery = "( ( visibility = 'anyoneCanFind' or visibility = 'anyoneWithLink' or visibility = 'domainCanFind' or visibility = 'domainWithLink' or visibility = 'limited' ) and trashed = false ) and (mimeType contains 'video/')"
 	} else {
 		changeQuery = args.query
 	}

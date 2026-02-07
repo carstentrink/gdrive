@@ -11,7 +11,7 @@ const Name = "gdrive"
 const Version = "3.0.11"
 
 const DefaultMaxFiles = 999
-const DefaultSelection = 4
+const DefaultSelection = 5
 const DefaultMaxChanges = 100
 const DefaultNameWidth = 99
 const DefaultPathWidth = 60
@@ -66,7 +66,7 @@ func main() {
 					cli.IntFlag{
 						Name:         "selection",
 						Patterns:     []string{"-s", "--selection"},
-						Description:  fmt.Sprintf("List files based on selection: Choose from 1 2 3 4: Default is %d \n    1: all files excl. folders\n    2: all files\n    3: all starred files\n    4: defaults to -q\n    See: https://developers.google.com/drive/api/guides/ref-search-terms\n    https://developers.google.com/drive/search-parameters", DefaultSelection),
+						Description:  fmt.Sprintf("List files based on selection: Choose from 1 2 3 4: Default is %d \n    1: all files excl. folders\n    2: all files\n    3: all starred files\n    4. all video files\n    5: defaults to -q\n    See: https://developers.google.com/drive/api/guides/ref-search-terms\n    https://developers.google.com/drive/search-parameters", DefaultSelection),
 						DefaultValue: DefaultSelection,
 					},
 					cli.StringFlag{
