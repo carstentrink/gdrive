@@ -8,9 +8,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/msfjarvis/gdrive/auth"
-	"github.com/msfjarvis/gdrive/cli"
-	"github.com/msfjarvis/gdrive/drive"
+	"github.com/carstentrink/gdrive/auth"
+	"github.com/carstentrink/gdrive/cli"
+	"github.com/carstentrink/gdrive/drive"
 )
 
 var (

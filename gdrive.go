@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/msfjarvis/gdrive/cli"
+	"github.com/carstentrink/gdrive/cli"
 )
 
 const Name = "gdrive"
@@ -76,9 +76,9 @@ func main() {
 						DefaultValue: DefaultQuery,
 					},
 					cli.StringFlag{
-						Name:        "sortOrder",
-						Patterns:    []string{"--order"},
-						Description: "Sort order: recency desc. See https://godoc.org/google.golang.org/api/drive/v3#FilesListCall.OrderBy",
+						Name:         "sortOrder",
+						Patterns:     []string{"--order"},
+						Description:  "Sort order: recency desc. See https://godoc.org/google.golang.org/api/drive/v3#FilesListCall.OrderBy",
 						DefaultValue: DefaultSortOrder,
 					},
 					cli.IntFlag{

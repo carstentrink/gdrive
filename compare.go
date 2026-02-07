@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"os"
 
-	"github.com/msfjarvis/gdrive/drive"
+	"github.com/carstentrink/gdrive/drive"
 )
 
 const MinCacheFileSize = 5 * 1024 * 1024
